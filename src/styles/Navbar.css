@@ -52,6 +52,18 @@
     color: var(--color-primary);
 }
 
+.logo-image {
+    height: 75px;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .logo-image {
+    padding-top: 10px;
+    height: 75px;
+}
+
 .nav-menu {
     display: flex;
     gap: 2rem;

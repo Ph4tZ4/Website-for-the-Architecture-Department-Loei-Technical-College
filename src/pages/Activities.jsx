@@ -49,24 +49,22 @@ const Activities = () => {
             </div>
 
             <div className="container section">
-                <div className="timeline-container">
-                    {activities.map((item, index) => (
-                        <ScrollReveal key={item.id} threshold={0.2}>
-                            <div className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-                                <div className="timeline-content">
-                                    <div className="activity-img-wrapper">
-                                        <img src={item.image} alt={item.title} />
-                                        <div className="date-badge">
-                                            <Calendar size={16} /> {item.date}
-                                        </div>
+                <div className="activities-grid">
+                    {activities.map((item) => (
+                        <ScrollReveal key={item.id} threshold={0.1}>
+                            <div className="activity-card">
+                                <div className="activity-img-wrapper">
+                                    <img src={item.image} alt={item.title} />
+                                    <div className="date-badge">
+                                        <Calendar size={14} /> {item.date}
                                     </div>
-                                    <div className="activity-details">
-                                        <h3>{item.title}</h3>
-                                        <div className="location">
-                                            <MapPin size={16} /> {item.location}
-                                        </div>
-                                        <p>{item.desc}</p>
+                                </div>
+                                <div className="activity-details">
+                                    <h3>{item.title}</h3>
+                                    <div className="location">
+                                        <MapPin size={14} /> {item.location}
                                     </div>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         </ScrollReveal>
