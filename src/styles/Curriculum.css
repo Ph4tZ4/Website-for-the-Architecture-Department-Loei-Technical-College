@@ -1,0 +1,100 @@
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-family: var(--font-main);
+    font-weight: 600;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.program-card {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+.program-title {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.program-desc {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.subjects-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.subjects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.subject-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-bg-alt);
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.subject-item:hover {
+    transform: translateX(5px);
+}
+
+.program-footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.btn-primary-dark {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.btn-primary-dark:hover {
+    background-color: var(--color-secondary);
+}

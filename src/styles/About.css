@@ -1,0 +1,76 @@
+/* Page header styles moved to global.css */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image-placeholder {
+    background-color: #ddd;
+    height: 400px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: bold;
+}
+
+.section-title-left {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-title-left::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin-top: 0.5rem;
+}
+
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.vm-card {
+    background: var(--color-bg-alt);
+    padding: 3rem;
+    border-radius: 10px;
+    border-top: 5px solid var(--color-primary);
+}
+
+.vm-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.vm-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.vm-card li {
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .about-grid,
+    .vision-mission-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-image-placeholder {
+        height: 300px;
+    }
+}

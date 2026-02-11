@@ -1,0 +1,257 @@
+.navbar {
+    background: transparent;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+    background: rgba(245, 245, 220, 0.95);
+    /* High opacity due to text reading on dropdown */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    height: 70px;
+    border-bottom: 1px solid rgba(62, 39, 35, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 40px;
+    position: relative;
+}
+
+.navbar-logo {
+    color: var(--color-white);
+    justify-self: start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    z-index: 1000;
+}
+
+.navbar.scrolled .navbar-logo {
+    color: var(--color-primary);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-links::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-white);
+    transition: width 0.3s ease;
+}
+
+.nav-links:hover::after {
+    width: 100%;
+}
+
+.navbar.scrolled .nav-links {
+    color: var(--color-primary);
+}
+
+.navbar.scrolled .nav-links::after {
+    background-color: var(--color-primary);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--color-white);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(62, 39, 35, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 10px 0;
+    border-radius: 0;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 20px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.dropdown-link:hover {
+    background-color: var(--color-bg-alt);
+    color: var(--color-primary);
+    padding-left: 25px;
+    /* Slight shift effect */
+}
+
+/* Mobile Toggle */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotate {
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 960px) {
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        /* Changed from height to min-height for scrolling if needed */
+        position: absolute;
+        top: 0;
+        left: -100%;
+        background: var(--color-primary);
+        justify-content: flex-start;
+        /* Align top */
+        padding-top: 100px;
+        /* Space for logo/close btn */
+        transition: all 0.5s ease;
+        gap: 0;
+        overflow-y: auto;
+        /* Allow scroll on menu */
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links {
+        color: var(--color-white) !important;
+        font-size: 1.2rem;
+        padding: 1.5rem 2rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-links:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .menu-icon {
+        display: block;
+        color: var(--color-white);
+        z-index: 1001;
+        /* Higher than menu */
+    }
+
+    .navbar.scrolled .menu-icon {
+        color: var(--color-primary);
+    }
+
+    /* When menu is open, ensure icon is white */
+    .nav-menu.active~.menu-icon,
+    /* This selector logic depends on DOM order, handled by rect/state usually */
+    .menu-icon {
+        /* Rely on state in React to change icon color if needed, but here simple fixed z-index works */
+    }
+
+    /* Mobile Dropdown */
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: none;
+        border: none;
+        display: none;
+        /* Height animation tricky with auto, use display toggle for simplicity */
+        opacity: 1;
+        visibility: visible;
+        padding: 0;
+    }
+
+    .dropdown-menu.show {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .dropdown-link {
+        color: rgba(255, 255, 255, 0.8);
+        padding: 15px 40px;
+    }
+
+    .dropdown-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+}

@@ -1,0 +1,205 @@
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    /* Taller for parallax */
+    background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2940&auto=format&fit=crop');
+    /* Architectural placeholder */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    animation: kenBurns 20s ease-out infinite alternate;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(62, 39, 35, 0.3),
+            rgba(62, 39, 35, 0.7));
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text-wrapper {
+    max-width: 900px;
+}
+
+.hero-eyebrow {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.hero-title {
+    font-size: 6rem;
+    /* Huge typography */
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-title .line {
+    display: block;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.hero-title .highlight {
+    color: var(--color-accent);
+    margin-left: 2rem;
+    /* Asymetric shift */
+    font-style: italic;
+    font-weight: 200;
+    /* Contrast weight */
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    max-width: 500px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 20px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.8s backwards;
+}
+
+.btn-outline-white {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-outline-white:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-white);
+    opacity: 0.7;
+    animation: fadeIn 1s ease-out 1.5s backwards;
+}
+
+.hero-scroll-indicator span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-scroll-indicator .line {
+    width: 1px;
+    height: 60px;
+    background-color: var(--color-white);
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes kenBurns {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-title .highlight {
+        margin-left: 0;
+    }
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+}

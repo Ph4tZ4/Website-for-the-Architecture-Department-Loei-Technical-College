@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    /* Modern Architectural Palette */
+    --color-primary: #3E2723;
+    /* Deep Coffee/Black Brown */
+    --color-secondary: #5D4037;
+    /* Warm Dark Brown */
+    --color-accent: #D7CCC8;
+    /* Muted Beige */
+    --color-text: #2c2420;
+    /* Soft Black */
+    --color-bg: #F5F5DC;
+    /* Beige/Cream instead of white */
+    --color-bg-alt: #EFEBE9;
+    /* Slightly darker beige */
+    --color-white: #ffffff;
+    --color-grid: rgba(62, 39, 35, 0.05);
+    /* Subtle grid line color */
+
+    /* Typography */
+    --font-main: 'Kanit', sans-serif;
+    --font-heading: 'Kanit', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 5rem;
+    --spacing-xl: 10rem;
+
+    /* Animation */
+    --transition-fast: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    font-weight: 300;
+    /* Lighter weight for modern feel */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Background Pattern */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(var(--color-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+/* Scroll Animation Classes */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1400px;
+    /* Wider container for modern look */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    text-align: left;
+    /* Asymmetric alignment */
+    margin-bottom: 4rem;
+    color: var(--color-primary);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title::before {
+    content: attr(data-subtitle);
+    /* Use attribute for decorative text */
+    display: block;
+    font-size: 1rem;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+    opacity: 0.7;
+}
+
+/* Buttons */
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 0;
+    /* Sharp edges */
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.btn-primary-dark {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-primary-dark:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Page Header (Global) */
+.page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 120px 0 60px;
+    /* Accounts for fixed navbar */
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+}

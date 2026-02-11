@@ -1,0 +1,152 @@
+.admissions-page {
+    min-height: 100vh;
+}
+
+.admissions-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+
+.section-heading {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.schedule-card {
+    background: var(--color-white);
+    border: 1px solid rgba(62, 39, 35, 0.1);
+    padding: 2rem;
+}
+
+.schedule-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed rgba(62, 39, 35, 0.1);
+}
+
+.schedule-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.date-box {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.date-box .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.date-box .year {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.schedule-detail h3 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.schedule-detail p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.req-card {
+    background: var(--color-bg-alt);
+    padding: 2rem;
+    border-left: 4px solid var(--color-secondary);
+}
+
+.req-card h3 {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.req-card ul {
+    list-style: none;
+}
+
+.req-card li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.sidebar-card {
+    background: var(--color-white);
+    padding: 2rem;
+    border: 1px solid rgba(62, 39, 35, 0.1);
+    margin-bottom: 2rem;
+}
+
+.sidebar-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+}
+
+.doc-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-accent);
+}
+
+.btn-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background: var(--color-secondary);
+}
+
+@media screen and (max-width: 960px) {
+    .admissions-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+}

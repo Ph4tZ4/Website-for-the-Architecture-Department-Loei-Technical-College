@@ -1,0 +1,117 @@
+.portfolio-page {
+    min-height: 100vh;
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+}
+
+.portfolio-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.portfolio-image-wrapper img {
+    width: 100%;
+    height: 300px;
+    /* Fixed height for consistent grid or use auto for true masonry */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-image-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(62, 39, 35, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 2rem;
+    text-align: center;
+}
+
+.portfolio-image-wrapper:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.portfolio-overlay p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s;
+}
+
+.category-tag {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.2s;
+}
+
+.portfolio-image-wrapper:hover .portfolio-overlay h3,
+.portfolio-image-wrapper:hover .portfolio-overlay p,
+.portfolio-image-wrapper:hover .category-tag {
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}

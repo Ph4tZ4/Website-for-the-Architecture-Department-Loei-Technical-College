@@ -1,0 +1,54 @@
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.staff-card {
+    background: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.staff-card:hover {
+    transform: translateY(-10px);
+}
+
+.staff-image-placeholder {
+    height: 250px;
+    background-color: var(--color-bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.staff-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.staff-name {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.staff-role {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.staff-bio {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
